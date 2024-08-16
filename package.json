@@ -1,0 +1,34 @@
+{
+  "name": "html",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@storybook/addon-actions": "^7.6.17",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-webpack5": "^7.6.17",
+    "chromatic": "^11.6.0",
+    "copyfiles": "^2.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "storybook": "^7.6.17"
+  },
+  "packageManager": "yarn@3.8.3",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "storybook": "storybook dev -p 3000",
+    "build": "storybook build && yarn run copyMetadata",
+    "start-others": "cd storybooks && yarn install && yarn dev",
+    "copyMetadata": "npx copyfiles ./metadata1.json ./storybook-static",
+    "chromatic": "npx chromatic --project-token=chpt_06edb7444f448a5 --output-dir storybook-static/ --build-script-name build"
+  },
+  "dependencies": {
+    "test-storybook-a": "^0.1.2",
+    "test-storybook-b": "^0.1.1"
+  }
+}
